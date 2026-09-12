@@ -4,7 +4,7 @@ const { createClient }=require('@supabase/supabase-js');
 const app=express(); const upload=multer({storage:multer.memoryStorage(),limits:{fileSize:10*1024*1024,files:20}});
 const PORT=process.env.PORT||3000, ADMIN_USER=process.env.ADMIN_USER||'admin', ADMIN_PASS=process.env.ADMIN_PASS||'changeme123', SESSION_SECRET=process.env.SESSION_SECRET||'change-me';
 if(process.env.NODE_ENV==='production' && (!process.env.ADMIN_USER||!process.env.ADMIN_PASS||!process.env.SESSION_SECRET)) { throw new Error('Production requires ADMIN_USER, ADMIN_PASS and SESSION_SECRET environment variables.'); }
-const AGENT_NAME=process.env.AGENT_NAME||'Asfak Properties',AGENT_PHONE=process.env.AGENT_PHONE||'+91 90000 00000',AGENT_WHATSAPP=process.env.AGENT_WHATSAPP||'919000000000',AGENT_EMAIL=process.env.AGENT_EMAIL||'contact@example.com',AGENT_CITY=process.env.AGENT_CITY||'Bangalore';
+const AGENT_NAME=process.env.AGENT_NAME||'Asfak Properties',AGENT_PHONE=process.env.AGENT_PHONE||'+91 62045 23773',AGENT_WHATSAPP=process.env.AGENT_WHATSAPP||'919852299266',AGENT_EMAIL=process.env.AGENT_EMAIL||'asfakahmed9852@gmail.com',AGENT_CITY=process.env.AGENT_CITY||'Bangalore';
 if(!process.env.SUPABASE_URL||!process.env.SUPABASE_SERVICE_ROLE_KEY) console.warn('Supabase not configured. Add credentials to .env');
 const supabase=createClient(process.env.SUPABASE_URL||'https://placeholder.supabase.co',process.env.SUPABASE_SERVICE_ROLE_KEY||'placeholder');
 const BUCKET=process.env.SUPABASE_STORAGE_BUCKET||'property-images';
