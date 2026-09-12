@@ -1,0 +1,16 @@
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <strong><%= site.AGENT_NAME %></strong><br>
+        Real Estate Channel Partner, <%= site.AGENT_CITY %>
+      </div>
+      <div>
+        <%= site.AGENT_PHONE %><br>
+        <%= site.AGENT_EMAIL %>
+      </div>
+      <div>&copy; <%= new Date().getFullYear() %> <%= site.AGENT_NAME %>. All rights reserved.</div>
+    </div>
+  </footer>
+  <a class="whatsapp-float" href="https://wa.me/<%= site.AGENT_WHATSAPP %>" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">&#9743;</a>
+</body>
+</html>

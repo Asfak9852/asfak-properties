@@ -1,0 +1,42 @@
+<%- include('partials/header') %>
+
+<section style="padding-top:48px;">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>All properties</h2>
+        <p><%= listings.length %> project<%= listings.length === 1 ? '' : 's' %> currently listed.</p>
+      </div>
+    </div>
+
+    <form class="filter-bar" method="get" action="/listings">
+      <input type="text" name="location" placeholder="Location (e.g. Whitefield)" value="<%= query.location || '' %>">
+      <input type="text" name="bhk" placeholder="BHK (e.g. 3 BHK)" value="<%= query.bhk || '' %>">
+      <input type="number" name="maxPrice" placeholder="Max budget (in Lakhs)" value="<%= query.maxPrice || '' %>">
+      <button type="submit" class="btn btn-primary btn-sm">Filter</button>
+      <a href="/listings" class="btn btn-outline btn-sm">Reset</a>
+    </form>
+
+    <div class="grid">
+      <% listings.forEach(p => { %>
+        <a class="card" href="/property/<%= p.id %>" style="color:inherit;">
+          <div class="card-image"><img src="<%= (p.images && p.images[0]) || '' %>" alt="<%= p.title %>"></div>
+          <div class="card-body">
+            <div class="card-builder"><%= p.builder %></div>
+            <h3 class="card-title"><%= p.title %></h3>
+            <div class="card-location"><%= p.location %></div>
+            <div class="card-meta">
+              <span class="card-price">&#8377;<%= formatPrice(p.price_min) %> &ndash; &#8377;<%= formatPrice(p.price_max) %></span>
+              <span class="tag <%= p.status %>"><%= p.bhk %></span>
+            </div>
+          </div>
+        </a>
+      <% }) %>
+      <% if (listings.length === 0) { %>
+        <p>No properties match your filters right now. Try widening your search.</p>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

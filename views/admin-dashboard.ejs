@@ -1,0 +1,33 @@
+<% var active = 'dashboard'; var pageTitle = 'Dashboard'; %>
+<%- include('partials/admin-header') %>
+
+<h2>Dashboard</h2>
+<p>Quick snapshot of your business.</p>
+
+<div class="stat-grid">
+  <div class="stat-box"><strong><%= stats.totalListings %></strong><span>Total listings</span></div>
+  <div class="stat-box"><strong><%= stats.availableListings %></strong><span>Available</span></div>
+  <div class="stat-box"><strong><%= stats.totalLeads %></strong><span>Total leads</span></div>
+  <div class="stat-box"><strong><%= stats.newLeads %></strong><span>New leads (need follow-up)</span></div>
+</div>
+
+<h3>Recent enquiries</h3>
+<table>
+  <thead><tr><th>Name</th><th>Phone</th><th>Interested in</th><th>Status</th><th>Received</th></tr></thead>
+  <tbody>
+    <% recentLeads.forEach(l => { %>
+      <tr>
+        <td><%= l.name %></td>
+        <td><%= l.phone %></td>
+        <td><%= l.propertyTitle || '—' %></td>
+        <td><%= l.status %></td>
+        <td><%= new Date(l.createdAt).toLocaleString('en-IN') %></td>
+      </tr>
+    <% }) %>
+    <% if (recentLeads.length === 0) { %>
+      <tr><td colspan="5">No enquiries yet.</td></tr>
+    <% } %>
+  </tbody>
+</table>
+
+<%- include('partials/admin-footer') %>

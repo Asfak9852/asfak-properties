@@ -1,0 +1,61 @@
+<%- include('partials/header') %>
+
+<section class="hero">
+  <div class="container">
+    <div>
+      <div class="hero-eyebrow">Channel Partner &middot; <%= site.AGENT_CITY %></div>
+      <h1>Find a home you'll actually love living in.</h1>
+      <p class="lead">I help buyers across <%= site.AGENT_CITY %> shortlist, visit, and close the right property from trusted developers — Sobha, Prestige, Lodha and more — with honest advice at every step.</p>
+      <div style="display:flex; gap:14px; margin-top:28px;">
+        <a href="/listings" class="btn btn-primary">Browse properties</a>
+        <a href="/contact" class="btn btn-outline">Talk to me</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong><%= featured.length %>+</strong><span>Active projects</span></div>
+        <div><strong>3</strong><span>Builder partners</span></div>
+        <div><strong>24 hr</strong><span>Response time</span></div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80" alt="Modern apartment building">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Featured properties</h2>
+        <p>A short list, handpicked — not a database dump.</p>
+      </div>
+      <a href="/listings" class="btn btn-outline btn-sm">View all</a>
+    </div>
+    <div class="grid">
+      <% featured.forEach(p => { %>
+        <a class="card" href="/property/<%= p.id %>" style="color:inherit;">
+          <div class="card-image"><img src="<%= (p.images && p.images[0]) || '' %>" alt="<%= p.title %>"></div>
+          <div class="card-body">
+            <div class="card-builder"><%= p.builder %></div>
+            <h3 class="card-title"><%= p.title %></h3>
+            <div class="card-location"><%= p.location %></div>
+            <div class="card-meta">
+              <span class="card-price">&#8377;<%= formatPrice(p.price_min) %> &ndash; &#8377;<%= formatPrice(p.price_max) %></span>
+              <span class="tag available"><%= p.bhk %></span>
+            </div>
+          </div>
+        </a>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--line); background:var(--paper-raised);">
+  <div class="container" style="max-width:640px; text-align:left;">
+    <h2>Why buyers work with me directly</h2>
+    <p>No brokerage games, no pressure to decide fast. I walk you through RERA status, real pricing, and site visits so you know exactly what you're paying for — before you sign anything.</p>
+    <a href="/contact" class="btn btn-primary">Start a conversation</a>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

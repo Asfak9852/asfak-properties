@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof pageTitle !== 'undefined' ? pageTitle : 'Admin' %> — <%= site.AGENT_NAME %></title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <a href="/" class="brand"><%= site.AGENT_NAME %> Admin</a>
+    <a href="/admin" class="<%= typeof active !== 'undefined' && active === 'dashboard' ? 'active' : '' %>">Dashboard</a>
+    <a href="/admin/leads" class="<%= typeof active !== 'undefined' && active === 'leads' ? 'active' : '' %>">Leads</a>
+    <a href="/admin/listings" class="<%= typeof active !== 'undefined' && active === 'listings' ? 'active' : '' %>">Listings</a>
+    <a href="/" target="_blank">View site</a>
+    <form method="post" action="/admin/logout" style="margin-top:20px;">
+      <button type="submit" class="btn btn-outline btn-sm btn-block" style="color:#fff; border-color:rgba(255,255,255,0.3);">Log out</button>
+    </form>
+  </aside>
+  <main class="admin-main">

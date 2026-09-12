@@ -1,0 +1,33 @@
+<% var active = 'listings'; var pageTitle = 'Listings'; %>
+<%- include('partials/admin-header') %>
+
+<div class="section-head" style="margin-bottom:24px;">
+  <div>
+    <h2>Listings</h2>
+    <p><%= listings.length %> propert<%= listings.length === 1 ? 'y' : 'ies' %> live on the site.</p>
+  </div>
+  <a href="/admin/listings/new" class="btn btn-primary">+ Add listing</a>
+</div>
+
+<table>
+  <thead><tr><th>Title</th><th>Builder</th><th>Location</th><th>Price range</th><th>Status</th><th></th></tr></thead>
+  <tbody>
+    <% listings.forEach(l => { %>
+      <tr>
+        <td><%= l.title %></td>
+        <td><%= l.builder %></td>
+        <td><%= l.location %></td>
+        <td>&#8377;<%= formatPrice(l.price_min) %> &ndash; &#8377;<%= formatPrice(l.price_max) %></td>
+        <td><span class="tag <%= l.status %>"><%= l.status %></span></td>
+        <td style="display:flex; gap:8px;">
+          <a href="/admin/listings/<%= l.id %>/edit" class="btn btn-outline btn-sm">Edit</a>
+          <form method="post" action="/admin/listings/<%= l.id %>/delete" onsubmit="return confirm('Delete this listing?');">
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include('partials/admin-footer') %>

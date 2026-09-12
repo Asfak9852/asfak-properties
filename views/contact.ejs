@@ -1,0 +1,47 @@
+<%- include('partials/header') %>
+
+<section style="padding-top:48px;">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Get in touch</h2>
+        <p>Tell me what you're looking for — budget, location, timeline — and I'll follow up within 24 hours.</p>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <% if (submitted) { %>
+        <div class="alert alert-success">Thanks! Your details have been received. I'll call you shortly.</div>
+      <% } %>
+      <% if (error) { %>
+        <div class="alert alert-error"><%= error %></div>
+      <% } %>
+
+      <form method="post" action="/contact">
+        <input type="hidden" name="propertyTitle" value="<%= propertyTitle %>">
+        <% if (propertyTitle) { %>
+          <div class="alert alert-success" style="background:var(--paper); border-color:var(--line); color:var(--ink-soft);">Enquiring about: <strong><%= propertyTitle %></strong></div>
+        <% } %>
+        <div class="form-field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-field">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email (optional)</label>
+          <input type="email" id="email" name="email">
+        </div>
+        <div class="form-field">
+          <label for="message">What are you looking for?</label>
+          <textarea id="message" name="message" placeholder="e.g. 3 BHK under 1.5 Cr near Whitefield, ready to move"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send enquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
