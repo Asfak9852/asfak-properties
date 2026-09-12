@@ -374,3 +374,60 @@ th { color: var(--ink-soft); font-weight: 500; background: var(--paper); }
 }
 .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}.muted,small{color:var(--ink-soft)}.property-page{padding:40px 0 64px}.back-link{display:inline-block;margin-bottom:22px}.gallery{position:relative;height:480px;border-radius:12px;overflow:hidden;background:#eee}.gallery>img{width:100%;height:100%;object-fit:cover}.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);border:0;border-radius:50%;width:42px;height:42px;font-size:30px;cursor:pointer}.prev{left:14px}.next{right:14px}.thumbs{display:flex;gap:10px;overflow:auto;padding:12px 0}.thumbs img{width:90px;height:65px;object-fit:cover;border-radius:6px;cursor:pointer}.price-big{font-size:1.5rem;font-weight:700;margin:14px 0}.property-sub{color:var(--ink-soft)}.amenities{display:flex;flex-wrap:wrap;gap:10px}.amenities span{padding:9px 13px;border:1px solid var(--line);border-radius:999px}.resource-links{display:flex;gap:10px;margin-top:24px}.btn-block{display:block;text-align:center;margin-top:10px}@media(max-width:700px){.form-grid{grid-template-columns:1fr}.property-header{grid-template-columns:1fr;gap:24px}.gallery{height:280px}.property-page{padding-top:24px}.thumbs img{width:72px;height:54px}.resource-links{flex-direction:column}}
 .thumb-admin{display:flex;flex-wrap:wrap;gap:12px;margin:14px 0}.thumb-admin img{width:120px;height:85px;object-fit:cover;border-radius:8px}.thumb-admin form{margin-top:5px}.lead-list{display:grid;gap:16px}.lead-card{border:1px solid var(--line);padding:18px;border-radius:12px;background:#fff;display:grid;grid-template-columns:1fr minmax(240px,420px) auto;gap:18px}.lead-card textarea{min-height:70px;width:100%;margin:8px 0}.lead-card select,.lead-card input{width:100%;margin:6px 0}.check{display:block;margin:15px 0;font-weight:600}.floorplans{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}@media(max-width:800px){.lead-card{grid-template-columns:1fr}.thumb-admin img{width:100px}}
+/* ================================
+   ASFAK PROPERTIES LOGO
+================================ */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand img {
+  width: 180px;
+  height: auto;
+  max-height: 65px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Professional header */
+.site-header .container {
+  min-height: 76px;
+}
+
+/* Mobile logo */
+@media (max-width: 768px) {
+
+  .site-header .container {
+    height: 65px;
+    min-height: 65px;
+    padding: 0 15px;
+  }
+
+  .brand img {
+    width: 145px;
+    max-height: 52px;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .brand img {
+    width: 125px;
+    max-height: 48px;
+  }
+
+  .nav-links {
+    gap: 8px;
+  }
+}
